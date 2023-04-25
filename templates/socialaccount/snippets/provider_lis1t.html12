@@ -1,0 +1,2 @@
+{% load static %}
+<a href="http://127.0.0.1:7000/as/"><img src="{% static 'images/infusion-analysts.png'%}" height="100" width="300"></a>

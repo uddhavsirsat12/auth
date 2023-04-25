@@ -1,0 +1,28 @@
+{% extends 'account/base.html' %}
+
+{% block content %}
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Home Page</title>
+    </head>
+    <body>
+        <h1>Welcome {{ user_data.name }}</h1>
+        <p>Your email is {{ user_data.email }}</p>
+    </body>
+    </html>
+
+    <script>
+        // get the access token from the URL fragment
+        var accessToken = window.location.href.split('access_token=')[1].split('&')[0];
+      
+        // send the access token to the server using AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/home/?access_token=' + accessToken, true);
+         {% comment %} <li><a href="{% url 'user' %}">user</a></li> {% endcomment %}
+        xhr.send();
+    </script>
+    
+
+{% endblock %}
