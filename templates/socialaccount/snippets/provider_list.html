@@ -11,10 +11,11 @@
      class="socialaccount_provider {{provider.id}} {{brand.id}}" 
      href="{% provider_login_url provider.id openid=brand.openid_url process=process %}" 
      >{{brand.name}}</a>
+     
 </div>
 {% endfor %}
 {% endif %}
-{% comment %} <div class="my-2">
+ {% comment %} <div class="my-2">
   <a title="{{provider.name}}" class="socialaccount_provider {{provider.id}}" 
      href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">
      <img src="
@@ -23,8 +24,48 @@
      {% endwith %}
      "alt="{{ provider.name }}" height="50" width="300"/>
      </a>
-
-     
-    </a> {% endcomment %}
-</div>
+    </a> 
+</div> {% endcomment %}
 {% endfor %}
+<h1> OR </h1>
+
+<div class = 'container my-5 border = 2 py-2'>
+  
+  <head>
+    {% comment %} <h2 align ="center" >Login as Infusion_Analysts </h2> {% endcomment %}
+        {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>{{ message }}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %}
+  {% endif %}
+</head>
+
+
+<form  class = 'my-4'method ='post'action="{% url 'login1' %}" >
+  {% csrf_token %}
+    <div class="form-group">
+      <label for="exampleInputEmail1">Username</label>
+      <input type="text" class="form-control" name ="username" placeholder="Enter username" required>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" name = "password" placeholder="Password" required>
+    </div>
+    <br><button type="submit" class="btn btn-primary">Submit</button>
+    <div>
+      <p style="
+      position: absolute;
+      right: 300px;
+      bottom:600px
+      top: 259px;
+      left:1310px;
+      ">Need an account? <a href="/register">Register</a>
+      </p>
+      </div>
+  </form>
+</div> 

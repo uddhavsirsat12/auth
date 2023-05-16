@@ -26,7 +26,7 @@ urlpatterns = [
     path('', include('infusion_analysts.urls')),
     path('register',views.register_1,name='register'),
     path('login1',views.login_1,name='login1'),
-    # path('logout',views.logout_1,name='logout'),  
+    path('logout',views.logout_1,name='logout'),  
     # path('home/',views.user, name='home'),
              
   ]

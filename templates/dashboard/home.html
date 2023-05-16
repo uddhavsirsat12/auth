@@ -2,27 +2,26 @@
 
 {% block content %}
 
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Home Page</title>
-    </head>
-    <body>
-        <h1>Welcome {{ user_data.name }}</h1>
-        <p>Your email is {{ user_data.email }}</p>
-    </body>
-    </html>
-
-    <script>
-        // get the access token from the URL fragment
-        var accessToken = window.location.href.split('access_token=')[1].split('&')[0];
-      
-        // send the access token to the server using AJAX
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', '/home/?access_token=' + accessToken, true);
-         {% comment %} <li><a href="{% url 'user' %}">user</a></li> {% endcomment %}
-        xhr.send();
-    </script>
-    
-
+<head>
+    <title>Home Page</title>
+    <style>
+        h1, h2 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 36px;
+            font-weight: bold;
+            color: #4285f4;
+        }
+        h2 {
+            font-size: 24px;
+            font-weight: normal;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome  {{ username }}</h1>
+    <h2>Your email is {{ email }}</h2>
+        <a href="{% url 'login1' %}">Logout</a>
+</body>
 {% endblock %}

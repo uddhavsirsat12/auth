@@ -52,7 +52,7 @@ def login_1(request):
 
 def logout_1(request):
     logout(request)                                                                                                                          
-    return redirect('home')
+    return render(request,'login1.html')
 
 def home(request):
     if request.method == "GET":
@@ -80,8 +80,7 @@ def home(request):
                 response = requests.get('http://localhost:7000/users/', headers=headers)
                 if response.status_code == 200:
                     user_data = response.json()
-                    # print(user_data)
-                    return HttpResponse(f"Welcome {user_data['username']}, your email is {user_data['email']}")
+                    return render(request,'dashboard/home.html',context=user_data)
                 else:
                     return HttpResponse("Failed to fetch user data")
             else:
